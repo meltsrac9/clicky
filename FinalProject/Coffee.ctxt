@@ -13,4 +13,6 @@ comment5.params=me
 comment5.target=void\ mouseReleased(java.awt.event.MouseEvent)
 comment6.params=me
 comment6.target=void\ mouseExited(java.awt.event.MouseEvent)
-numComments=7
+comment7.params=e
+comment7.target=void\ actionPerformed(java.awt.event.ActionEvent)
+numComments=8
