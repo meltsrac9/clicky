@@ -11,7 +11,7 @@ import java.applet.*;
  * @Rachel Meltser
  * @5/14/2015
  */
-public class Coffee extends JApplet implements ActionListener
+public class Coffee extends JApplet implements MouseListener
 {
     private Image coffeeCup;
     private int score;
@@ -28,7 +28,20 @@ public class Coffee extends JApplet implements ActionListener
         g.drawImage(coffeeCup, x, y, width, height, this);
         g.drawString("Score: "+score,25,25);
     }
-    public void actionPerformed(ActionEvent e){
+    public void mouseClicked(MouseEvent me){
         score++;
+        repaint();
+    } 
+    public void mouseEntered(MouseEvent me){
+        
+    } 
+    public void mousePressed(MouseEvent me){
+        
+    } 
+    public void mouseReleased(MouseEvent me){
+        
+    } 
+    public void mouseExited(MouseEvent me){
+        
     } 
 }
