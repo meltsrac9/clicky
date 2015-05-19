@@ -58,7 +58,19 @@ public class Coffee extends JApplet implements MouseListener, ActionListener
         if(e.getSource()==b1){
             if(score>=100){
                 score-=100;
-                multiplier=2;
+                multiplier*=2;
+            }
+        }
+        if(e.getSource()==b2){
+            if(score>=500){
+                score-=500;
+                multiplier*=3;
+            }
+        }
+        if(e.getSource()==b3){
+            if(score>=1000){
+                score-=1000;
+                multiplier*=5;
             }
         }
     }
