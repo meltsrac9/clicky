@@ -33,14 +33,15 @@ public class Coffee extends JApplet implements MouseListener, ActionListener
 
         c.setLayout(new FlowLayout());
         c.add(new JLabel(cup));
-        
-
         c.add(b1);
         c.add(b2);
         c.add(b3);
+        
         b1.addActionListener(this);//makes it button-y
         b2.addActionListener(this);
         b3.addActionListener(this);
+        //cup.addActionListener(this); want to be able to do this and DONE(?)?=
+        
     }
 
     public void paint(Graphics g)
