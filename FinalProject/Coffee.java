@@ -33,9 +33,14 @@ public class Coffee extends JApplet implements MouseListener, ActionListener
 
         c.setLayout(new FlowLayout());
         c.add(new JLabel(cup));
-        c.add(b1);
-        b1.addActionListener(this);//makes it button-y
+        
 
+        c.add(b1);
+        c.add(b2);
+        c.add(b3);
+        b1.addActionListener(this);//makes it button-y
+        b2.addActionListener(this);
+        b3.addActionListener(this);
     }
 
     public void paint(Graphics g)
@@ -45,7 +50,6 @@ public class Coffee extends JApplet implements MouseListener, ActionListener
         int y = 0;
         int width = 500;
         int height = 450;
-
         g.drawString("Score: "+score,25,25);        
     }
 
