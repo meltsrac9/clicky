@@ -79,38 +79,6 @@ public class Coffee extends JApplet implements MouseListener, ActionListener
     public void mouseClicked(MouseEvent me){
         score+=multiplier;        
         repaint();
-        if(me.getSource()==b1){
-            try{
-                URL imageURL2 = new URL(getDocumentBase(), "cup-of-black-coffee2.jpg");
-
-                Image coffeeCup2=getImage(imageURL2);
-                cup2 = new ImageIcon(coffeeCup2);
-                c=getContentPane();
-                c.add(new JLabel (cup2));
-                repaint();                
-            }
-            catch(Exception m){}
-            if(score>=100){
-                score-=100;
-                multiplier*=2;
-                repaint();
-
-            }
-        }
-        if(me.getSource()==b2){
-            if(score>=500){
-                score-=500;
-                multiplier*=3;
-                repaint();
-            }
-        }
-        if(me.getSource()==b3){
-            if(score>=1000){
-                score-=1000;
-                multiplier*=5;
-                repaint();
-            }
-        }
     } 
 
     public void mouseEntered(MouseEvent me){
@@ -130,6 +98,37 @@ public class Coffee extends JApplet implements MouseListener, ActionListener
     } 
 
     public void actionPerformed(ActionEvent e){
-        
+        if(e.getSource()==b1){
+            try{
+                URL imageURL2 = new URL(getDocumentBase(), "cup-of-black-coffee2.jpg");
+
+                Image coffeeCup2=getImage(imageURL2);
+                cup2 = new ImageIcon(coffeeCup2);
+                c=getContentPane();
+                c.add(new JLabel (cup2));
+                repaint();                
+            }
+            catch(Exception m){}
+            if(score>=100){
+                score-=100;
+                multiplier*=2;
+                repaint();
+
+            }
+        }
+        if(e.getSource()==b2){
+            if(score>=500){
+                score-=500;
+                multiplier*=3;
+                repaint();
+            }
+        }
+        if(e.getSource()==b3){
+            if(score>=1000){
+                score-=1000;
+                multiplier*=5;
+                repaint();
+            }
+        }
     }
 }
