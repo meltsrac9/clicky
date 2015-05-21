@@ -17,9 +17,10 @@ import java.awt.event.MouseEvent;
  */
 public class Coffee extends JApplet implements MouseListener, ActionListener
 {
-    private ImageIcon cup;
+    private ImageIcon cup, cup2;
     private int score, multiplier=1;
     public JButton b1,b2,b3;
+    Container c;
     public void init(){
         //instantiates coffee cup
         try{
@@ -33,10 +34,11 @@ public class Coffee extends JApplet implements MouseListener, ActionListener
         JButton b1 = new JButton("2X Multiplier");
         JButton b2 = new JButton("3X Multiplier");
         JButton b3 = new JButton("5X Multiplier");
-        Container c = getContentPane();
+        c = getContentPane();
 
         c.setLayout(new FlowLayout());
         c.add(new JLabel(cup));
+        
         c.add(b1);
         c.add(b2);
         c.add(b3);
@@ -44,18 +46,23 @@ public class Coffee extends JApplet implements MouseListener, ActionListener
         b1.addActionListener(this);//makes it button-y
         b2.addActionListener(this);
         b3.addActionListener(this);
-        
+
         addMouseListener(new MouseAdapter() {
 
                 @Override
                 public void mouseClicked(MouseEvent e) {
-                    if(e.getSource()==cup)
-                    score+=multiplier;
+
                     //trying to see if it at least works
+                    try{
+                        URL imageURL2 = new URL(getDocumentBase(), "cup-of-black-coffee2.jpg");
+
+                        Image coffeeCup2=getImage(imageURL2);
+                        cup2 = new ImageIcon(coffeeCup2);
+                    }
+                    catch(Exception m){}
                 }
 
             });
-       
 
     }
 
@@ -92,9 +99,20 @@ public class Coffee extends JApplet implements MouseListener, ActionListener
 
     public void actionPerformed(ActionEvent e){
         if(e.getSource()==b1){
+            try{
+                URL imageURL2 = new URL(getDocumentBase(), "cup-of-black-coffee2");
+
+                Image coffeeCup2=getImage(imageURL2);
+                cup2 = new ImageIcon(coffeeCup2);
+                c.add(new JLabel (cup2));
+                repaint();
+                
+            }
+            catch(Exception m){}
             if(score>=100){
                 score-=100;
                 multiplier*=2;
+
             }
         }
         if(e.getSource()==b2){
