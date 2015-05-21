@@ -5,6 +5,10 @@ import javax.imageio.*;
 import java.awt.image.*;
 import java.applet.*;
 import java.net.URL;
+import java.awt.Rectangle;
+import java.awt.event.MouseAdapter;
+import java.awt.Graphics;
+import java.awt.event.MouseEvent;
 /**
  * Class Coffee - write a description of the class here
  * 
@@ -36,12 +40,23 @@ public class Coffee extends JApplet implements MouseListener, ActionListener
         c.add(b1);
         c.add(b2);
         c.add(b3);
-        
+
         b1.addActionListener(this);//makes it button-y
         b2.addActionListener(this);
         b3.addActionListener(this);
-        //cup.addActionListener(this); want to be able to do this and DONE(?)?=
         
+        addMouseListener(new MouseAdapter() {
+
+                @Override
+                public void mouseClicked(MouseEvent e) {
+                    if(e.getSource()==cup)
+                    score+=multiplier;
+                    //trying to see if it at least works
+                }
+
+            });
+       
+
     }
 
     public void paint(Graphics g)
