@@ -99,7 +99,8 @@ public class Coffee extends JApplet implements MouseListener, ActionListener
     } 
 
     public void actionPerformed(ActionEvent e){
-        if(e.getSource()==b1){//something wrong here(?)
+        
+        if(e.getSource()==b1){//Problem with getSource()
             try{
                 URL imageURL2 = new URL(getDocumentBase(), "cup-of-black-coffee2.jpg");
 
