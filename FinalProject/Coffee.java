@@ -99,7 +99,7 @@ public class Coffee extends JApplet implements MouseListener, ActionListener
     } 
 
     public void actionPerformed(ActionEvent e){
-        
+        //without diagnostics, method works; can display picture so long as window is resized
         if(e.getSource()==b1){//Problem with getSource()
             try{
                 URL imageURL2 = new URL(getDocumentBase(), "cup-of-black-coffee2.jpg");
