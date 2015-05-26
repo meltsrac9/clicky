@@ -33,9 +33,9 @@ public class Coffee extends JApplet implements MouseListener, ActionListener
         }
         catch(Exception e){}
         //creates buttons
-        JButton b1 = new JButton("2X Multiplier");
-        JButton b2 = new JButton("3X Multiplier");
-        JButton b3 = new JButton("5X Multiplier");
+        JButton b1 = new JButton("2X Multiplier (requires 100 points)");
+        JButton b2 = new JButton("3X Multiplier (requires 500 points)");
+        JButton b3 = new JButton("5X Multiplier (requires 1000 points)");
 
         c = getContentPane();
         c.setLayout(new FlowLayout());
@@ -53,7 +53,7 @@ public class Coffee extends JApplet implements MouseListener, ActionListener
         b3.addActionListener(this);
 
         addMouseListener(new MouseAdapter() {
-                //supposed to make the picture clickable
+                //sHE LIVES!!!!!
                 @Override
                 public void mouseClicked(MouseEvent e) {
 
@@ -95,7 +95,8 @@ public class Coffee extends JApplet implements MouseListener, ActionListener
     } 
 
     public void actionPerformed(ActionEvent e){
-        //without diagnostics, method works; can display picture so long as window is resized
+        //without diagnostics, method works;
+
         score-=multiplier;
         repaint();
         if(e.getSource()==b1){//Problem with getSource()
@@ -104,7 +105,6 @@ public class Coffee extends JApplet implements MouseListener, ActionListener
 
                 Image coffeeCup2=getImage(imageURL2);
                 cup2 = new ImageIcon(coffeeCup2);
-                c = getContentPane();
                 c.add(new JLabel (cup2));
                 repaint();                
             }
