@@ -36,17 +36,17 @@ public class Coffee extends JApplet implements MouseListener, ActionListener
         JButton b1 = new JButton("2X Multiplier");
         JButton b2 = new JButton("3X Multiplier");
         JButton b3 = new JButton("5X Multiplier");
-        
+
         c = getContentPane();
         c.setLayout(new FlowLayout());
         //inserts image
         c.add(new JLabel(cup));
-        
+
         //inserts buttons
         c.add(b1);
         c.add(b2);
         c.add(b3);
-        
+
         //makes buttons clickable
         b1.addActionListener(this);
         b2.addActionListener(this);
@@ -58,13 +58,8 @@ public class Coffee extends JApplet implements MouseListener, ActionListener
                 public void mouseClicked(MouseEvent e) {
 
                     //trying to see if it at least works
-                    try{
-                        URL imageURL2 = new URL(getDocumentBase(), "cup-of-black-coffee2.jpg");
-
-                        Image coffeeCup2=getImage(imageURL2);
-                        cup2 = new ImageIcon(coffeeCup2);
-                    }
-                    catch(Exception m){}
+                    score+=multiplier;
+                    repaint();
                 }
 
             });
@@ -80,6 +75,7 @@ public class Coffee extends JApplet implements MouseListener, ActionListener
     public void mouseClicked(MouseEvent me){
         score+=multiplier;        
         //repaint();
+
     } 
 
     public void mouseEntered(MouseEvent me){
