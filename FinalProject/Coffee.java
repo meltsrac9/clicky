@@ -17,7 +17,7 @@ import java.awt.event.MouseEvent;
  * @Rachel Meltser
  * @5/14/2015
  */
-public class Coffee extends JApplet implements MouseListener, ActionListener
+public class Coffee extends JApplet 
 {
     private ImageIcon cup, cup2;
     public int score=1000, multiplier=1;
@@ -48,9 +48,9 @@ public class Coffee extends JApplet implements MouseListener, ActionListener
         c.add(b3);
 
         //makes buttons clickable
-        b1.addActionListener(this);
-        b2.addActionListener(this);
-        b3.addActionListener(this);
+        b1.addActionListener(new MyButtonListener());
+        b2.addActionListener(new MyButtonListener());
+        b3.addActionListener(new MyButtonListener());
 
         addMouseListener(new MouseAdapter() {
                 //sHE LIVES!!!!!
@@ -72,62 +72,32 @@ public class Coffee extends JApplet implements MouseListener, ActionListener
         g.drawString("Score: "+score,25,25);//score doesn't update (assuming the buttons work)        
     }
 
-    public void mouseClicked(MouseEvent me){
-        score+=multiplier;        
-        //repaint();
 
-    } 
+    private class MyButtonListener implements ActionListener{
+        int multiplier = 1;
+        //make constructors for 1,2,3 etc
+        public void actionPerformed(ActionEvent e){
+            if(e.getSource()==b1){//Problem with getSource()
+                if(score>=100){
+                    score-=100;
+                    multiplier*=2;
+                    repaint();
 
-    public void mouseEntered(MouseEvent me){
-
-    } 
-
-    public void mousePressed(MouseEvent me){
-
-    } 
-
-    public void mouseReleased(MouseEvent me){
-
-    } 
-
-    public void mouseExited(MouseEvent me){
-
-    } 
-
-    public void actionPerformed(ActionEvent e){
-        //without diagnostics, method works;
-
-        score-=multiplier;
-        repaint();
-        if(e.getSource()==b1){//Problem with getSource()
-            try{
-                URL imageURL2 = new URL(getDocumentBase(), "cup-of-black-coffee2.jpg");
-
-                Image coffeeCup2=getImage(imageURL2);
-                cup2 = new ImageIcon(coffeeCup2);
-                c.add(new JLabel (cup2));
-                repaint();                
+                }
             }
-            catch(Exception m){}//this definitely should work
-            if(score>=100){
-                score-=100;
-                multiplier*=2;
-                repaint();
-
+            if(e.getSource()==b2){
+                if(score>=500){
+                    score-=500;
+                    multiplier*=3;
+                    repaint();
+                }
             }
-        }
-        if(e.getSource()==b2){
-            if(score>=500){
-                score-=500;
-                multiplier*=3;
-                repaint();
-            }
-        }
-        if(e.getSource()==b3){
-            if(score>=1000){
-                score-=1000;
-                multiplier*=5;
-                repaint();
+            if(e.getSource()==b3){
+                if(score>=1000){
+                    score-=1000;
+                    multiplier*=5;
+                    repaint();
+                }
             }
         }
     }
