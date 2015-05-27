@@ -20,7 +20,7 @@ import java.awt.event.MouseEvent;
 public class Coffee extends JApplet 
 {
     private ImageIcon cup, cup2;
-    public int score=1000, multiplier=1;
+    public int score=520, multiplier=1;
     public JButton b1,b2,b3;
     Container c;
     public void init(){
@@ -33,9 +33,9 @@ public class Coffee extends JApplet
         }
         catch(Exception e){}
         //creates buttons
-        JButton b1 = new JButton("2X Multiplier (requires 100 points)");
-        JButton b2 = new JButton("3X Multiplier (requires 500 points)");
-        JButton b3 = new JButton("5X Multiplier (requires 1000 points)");
+        JButton b1 = new JButton("2X Multiplier (requires 500 points)");
+        //         JButton b2 = new JButton("3X Multiplier (requires 500 points)");
+        //         JButton b3 = new JButton("5X Multiplier (requires 1000 points)");
 
         c = getContentPane();
         c.setLayout(new FlowLayout());
@@ -44,13 +44,13 @@ public class Coffee extends JApplet
 
         //inserts buttons
         c.add(b1);
-        c.add(b2);
-        c.add(b3);
+        //         c.add(b2);
+        //         c.add(b3);
 
         //makes buttons clickable
         b1.addActionListener(new MyButtonListener());
-        b2.addActionListener(new MyButtonListener());
-        b3.addActionListener(new MyButtonListener());
+        //         b2.addActionListener(new MyButtonListener());
+        //         b3.addActionListener(new MyButtonListener());
 
         addMouseListener(new MouseAdapter() {
                 //sHE LIVES!!!!!
@@ -69,36 +69,43 @@ public class Coffee extends JApplet
     public void paint(Graphics g)
     {
         super.paint(g); //only works with the call --?   
-        g.drawString("Score: "+score,25,25);//score doesn't update (assuming the buttons work)        
+        g.drawString("Score: "+score,25,20);//score doesn't update (assuming the buttons work)
+        g.drawString("Click the cup to raise your score!",25,35);
+        g.drawString("Get as high a score until you get bored!",25,50);
     }
 
-
     private class MyButtonListener implements ActionListener{
-        int multiplier = 1;
+        
         //make constructors for 1,2,3 etc
         public void actionPerformed(ActionEvent e){
-            if(e.getSource()==b1){//Problem with getSource()
-                if(score>=100){
-                    score-=100;
-                    multiplier*=2;
-                    repaint();
 
-                }
+            if(score>=500){
+                score-=500;
+                multiplier*=2;
+                repaint();
             }
-            if(e.getSource()==b2){
-                if(score>=500){
-                    score-=500;
-                    multiplier*=3;
-                    repaint();
-                }
-            }
-            if(e.getSource()==b3){
-                if(score>=1000){
-                    score-=1000;
-                    multiplier*=5;
-                    repaint();
-                }
-            }
+            //             if(e.getSource()==b1){//Problem with getSource()
+            //                 if(score>=100){
+            //                     score-=100;
+            //                     multiplier*=2;
+            //                     repaint();
+            // 
+            //                 }
+            //             }
+            //             if(e.getSource()==b2){
+            //                 if(score>=500){
+            //                     score-=500;
+            //                     multiplier*=3;
+            //                     repaint();
+            //                 }
+            //             }
+            //             if(e.getSource()==b3){
+            //                 if(score>=1000){
+            //                     score-=1000;
+            //                     multiplier*=5;
+            //                     repaint();
+            //                 }
+            //             }
         }
     }
 }
