@@ -20,7 +20,7 @@ import java.awt.event.MouseEvent;
 public class Coffee extends JApplet 
 {
     private ImageIcon cup, cup2;
-    public int score=520, multiplier=1;
+    public int score=0, multiplier=1;
     public JButton b1,b2,b3;
     Container c;
     public void init(){
