@@ -68,10 +68,11 @@ public class Coffee extends JApplet
 
     public void paint(Graphics g)
     {
-        super.paint(g); //only works with the call --?   
-        g.drawString("Score: "+score,25,20);//score doesn't update (assuming the buttons work)
-        g.drawString("Click the cup to raise your score!",25,35);
-        g.drawString("Get as high a score until you get bored!",25,50);
+        super.paint(g); //only works with the call --?
+        g.drawString("Coffee Clicker: Java Edition",25,20);
+        g.drawString("Score: "+score,25,35);//score doesn't update (assuming the buttons work)
+        g.drawString("Click the cup to raise your score!",25,50);
+        g.drawString("Get as high a score until you get bored!",25,65);
     }
 
     private class MyButtonListener implements ActionListener{
